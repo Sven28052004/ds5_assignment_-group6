@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Documentatie — Opdrachten</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📘</text></svg>">
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --text: #1c1b19;
+    --text-dim: #5a5751;
+    --accent: #8a4f2e;
+    --accent-soft: #f1e4d8;
+    --border: #e6e2da;
+    --code-bg: #f2efe9;
+    --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #171613;
+      --surface: #201f1b;
+      --text: #ece8e0;
+      --text-dim: #a39d90;
+      --accent: #e0a878;
+      --accent-soft: #35291d;
+      --border: #332f28;
+      --code-bg: #26231d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #171613;
+    --surface: #201f1b;
+    --text: #ece8e0;
+    --text-dim: #a39d90;
+    --accent: #e0a878;
+    --accent-soft: #35291d;
+    --border: #332f28;
+    --code-bg: #26231d;
+  }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Georgia", "Iowan Old Style", serif;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .layout {
+    display: flex;
+    max-width: 980px;
+    margin: 0 auto;
+    min-height: 100%;
+  }
+  nav {
+    flex: 0 0 210px;
+    padding: 2.5rem 1rem 2rem 0;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    align-self: flex-start;
+    font-family: system-ui, sans-serif;
+  }
+  nav a {
+    display: block;
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    margin-bottom: 2px;
+  }
+  nav a:hover { background: var(--accent-soft); color: var(--accent); }
+  main { flex: 1; padding: 2.5rem 1.25rem 4rem; min-width: 0; overflow-x: auto; }
+  h1 { font-size: 1.9rem; margin-bottom: 0.2rem; }
+  .subtitle { color: var(--text-dim); font-family: system-ui, sans-serif; font-size: 0.95rem; margin-bottom: 2.5rem; }
+  section.opdracht {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+  }
+  section.opdracht h2 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.35rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+  }
+  .doel { font-style: italic; color: var(--text-dim); margin-bottom: 1.25rem; }
+  .func {
+    border-left: 3px solid var(--accent-soft);
+    padding-left: 1rem;
+    margin-bottom: 1.4rem;
+  }
+  .func h3 {
+    font-family: var(--mono);
+    font-size: 0.98rem;
+    margin: 0 0 0.35rem 0;
+    color: var(--text);
+    background: var(--code-bg);
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    border-radius: 5px;
+  }
+  .func p { margin: 0.4rem 0; }
+  table.params {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: system-ui, sans-serif;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+  }
+  table.params th, table.params td {
+    text-align: left;
+    padding: 0.35rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  table.params th { color: var(--text-dim); font-weight: 600; }
+  code { font-family: var(--mono); background: var(--code-bg); padding: 0.1rem 0.35rem; border-radius: 4px; font-size: 0.88em; }
+  .algo {
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    font-family: system-ui, sans-serif;
+    font-size: 0.88rem;
+    margin-top: 0.5rem;
+  }
+  .algo strong { color: var(--accent); }
+  ul.stappen { margin: 0.3rem 0 0 0; padding-left: 1.2rem; }
+  ul.stappen li { margin-bottom: 0.2rem; }
+  footer { text-align: center; color: var(--text-dim); font-family: system-ui, sans-serif; font-size: 0.8rem; padding: 1rem; }
+  @media (max-width: 720px) {
+    nav { display: none; }
+    main { padding: 1.5rem 1rem 3rem; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav>
+    <a href="#opdracht1">Opdracht 1</a>
+    <a href="#opdracht2">Opdracht 2</a>
+    <a href="#opdracht3-1">Opdracht 3.1</a>
+    <a href="#opdracht3-2">Opdracht 3.2</a>
+  </nav>
+  <main>
+    <h1>Documentatie</h1>
+    <p class="subtitle">Functieoverzicht en uitleg per opdracht</p>
+
+    <section class="opdracht" id="opdracht1">
+      <h2>Opdracht 1 — CSV-cijferrapport</h2>
+      <p class="doel">Leest een CSV-bestand met studentcijfers in, berekent het gemiddelde en print een rapport van studenten met een cijfer ≥ 80.</p>
+
+      <div class="func">
+        <h3>openen(file_path: str) -&gt; list[dict]</h3>
+        <p>Opent het opgegeven CSV-bestand en zet elke rij om naar een dictionary via <code>csv.DictReader</code>. Geeft een lijst van alle rijen terug.</p>
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Omschrijving</th></tr>
+          <tr><td>file_path</td><td>str</td><td>Pad naar het CSV-bestand</td></tr>
+          <tr><th>Return</th><td>list[dict]</td><td>Eén dict per studentrecord (kolomnaam → waarde)</td></tr>
+        </table>
+        <p><strong>Let op:</strong> deze functie gebruikt de module <code>csv</code>, die niet is geïmporteerd bovenaan het notebook (alleen <code>pandas</code> en <code>numpy</code> staan er). Zonder <code>import csv</code> geeft dit een <code>NameError</code> bij uitvoeren.</p>
+      </div>
+
+      <div class="func">
+        <h3>gemiddelde(lijst_: list[dict]) -&gt; int</h3>
+        <p>Berekent het gemiddelde van de kolom <code>Grade</code> over alle records.</p>
+        <div class="algo">
+          <strong>Werking:</strong>
+          <ul class="stappen">
+            <li>Som alle cijfers (omgezet naar <code>float</code>)</li>
+            <li>Deel door het aantal records</li>
+          </ul>
+        </div>
+        <p>De type-hint zegt <code>int</code>, maar de functie geeft feitelijk een <code>float</code> terug.</p>
+      </div>
+
+      <div class="func">
+        <h3>filter(lijst: list[dict]) -&gt; None</h3>
+        <p>Filtert alle studenten met <code>Grade ≥ 80</code> en print naam en cijfer per gevonden student, gescheiden door een streepjeslijn.</p>
+      </div>
+
+      <div class="algo">
+        <strong>Hoofdscript:</strong> vraagt de gebruiker om een bestandspad, leest de data in, print het klassengemiddelde en vervolgens het rapport van studenten met een voldoende hoog cijfer.
+      </div>
+    </section>
+
+    <section class="opdracht" id="opdracht2">
+      <h2>Opdracht 2 — Mandelbrotverzameling</h2>
+      <p class="doel">Genereert en tekent de Mandelbrotverzameling als afbeelding, door voor elke pixel te bepalen hoe snel de bijbehorende iteratie divergeert.</p>
+
+      <div class="func">
+        <h3>pixelpositie(pixel_x: int, pixel_y: int, width: int) -&gt; complex</h3>
+        <p>Zet een pixelcoördinaat om naar een complex getal binnen het gebied <code>x ∈ [-1.5, 0.5]</code>, <code>y ∈ [-1, 1]</code>, op basis van de breedte van de afbeelding.</p>
+        <table class="params">
+          <tr><th>Parameter</th><th>Type</th><th>Omschrijving</th></tr>
+          <tr><td>pixel_x, pixel_y</td><td>int</td><td>Pixelpositie in het raster</td></tr>
+          <tr><td>width</td><td>int</td><td>Breedte (= hoogte) van de afbeelding in pixels</td></tr>
+          <tr><th>Return</th><td>complex</td><td>Bijbehorend punt in het complexe vlak</td></tr>
+        </table>
+      </div>
+
+      <div class="func">
+        <h3>diverging(complex_getal: complex) -&gt; int</h3>
+        <p>Past de Mandelbrot-iteratie <code>z ← z² + c</code> maximaal 100 keer toe, startend bij <code>z = 0</code>.</p>
+        <div class="algo">
+          <strong>Werking:</strong>
+          <ul class="stappen">
+            <li>Zodra <code>|z| &gt; 2</code>: geeft het aantal iteraties terug (divergentiesnelheid)</li>
+            <li>Na 100 iteraties zonder divergentie: geeft <code>0</code> terug (punt hoort bij de verzameling)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="func">
+        <h3>create_image(width: int) -&gt; np.ndarray</h3>
+        <p>Bouwt een <code>width × width</code> array op waarin elke cel de divergentie-index van het corresponderende punt bevat.</p>
+      </div>
+
+      <div class="func">
+        <h3>draw_mandel(lengte: int) -&gt; None</h3>
+        <p>Hoofdfunctie: genereert de afbeelding en toont deze met <code>matplotlib</code>, geschaald naar het venster <code>[-1.5, 0.5] × [-1, 1]</code>.</p>
+      </div>
+    </section>
+
+    <section class="opdracht" id="opdracht3-1">
+      <h2>Opdracht 3.1 — Barabási–Albert netwerk</h2>
+      <p class="doel">Genereert een schaalvrij netwerk volgens het Barabási–Albert-model (preferential attachment) en visualiseert het.</p>
+
+      <div class="func">
+        <h3>calculate_probabilities(graph: nx.Graph) -&gt; dict[int, float]</h3>
+        <p>Berekent voor elke node de kans op een nieuwe verbinding, evenredig aan de graad van de node (preferential attachment): <code>kans(v) = graad(v) / Σ graden</code>.</p>
+      </div>
+
+      <div class="func">
+        <h3>choose_nodes(G: nx.Graph, M: int) -&gt; list[int]</h3>
+        <p>Kiest <code>M</code> unieke bestaande nodes om een nieuwe node mee te verbinden, gewogen naar hun kans.</p>
+        <div class="algo">
+          <strong>Werking:</strong>
+          <ul class="stappen">
+            <li>Trek één node volgens de kansverdeling</li>
+            <li>Verwijder deze uit de kandidatenlijst en herverdeel de resterende kansen</li>
+            <li>Herhaal tot <code>M</code> nodes gekozen zijn</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="func">
+        <h3>generate_network(K: int, N: int, M: int) -&gt; nx.Graph</h3>
+        <p>Bouwt het volledige netwerk op.</p>
+        <table class="params">
+          <tr><th>Parameter</th><th>Omschrijving</th></tr>
+          <tr><td>K</td><td>Aantal startnodes (volledig verbonden met node 1)</td></tr>
+          <tr><td>N</td><td>Uiteindelijk aantal nodes</td></tr>
+          <tr><td>M</td><td>Aantal koppelingen per nieuwe node</td></tr>
+        </table>
+        <p>Start met een ster van <code>K</code> nodes rond node 1, en voegt daarna nodes <code>K+1 … N</code> toe die elk via <code>choose_nodes</code> aan <code>M</code> bestaande nodes koppelen.</p>
+      </div>
+    </section>
+
+    <section class="opdracht" id="opdracht3-2">
+      <h2>Opdracht 3.2 — PageRank op een gerichte graaf</h2>
+      <p class="doel">Leest een edge-list in (eekhoorn-interactiedata, kolommen <code>id1</code>/<code>id2</code>), bouwt een gerichte graaf en berekent PageRank per node.</p>
+
+      <div class="func">
+        <h3>openen(file_path: csv) -&gt; list[dict]</h3>
+        <p>Leest een CSV-bestand met <code>csv.DictReader</code> in en geeft een lijst van rijen terug. (De type-hint <code>csv</code> op <code>file_path</code> is onjuist; dit zou <code>str</code> moeten zijn.)</p>
+      </div>
+
+      <div class="func">
+        <h3>maak_Digraph(squirrel: list[dict]) -&gt; nx.DiGraph</h3>
+        <p>Zet elke rij om in een gerichte edge <code>id1 → id2</code> en bouwt zo een <code>DiGraph</code> op.</p>
+      </div>
+
+      <div class="func">
+        <h3>pagerank(G: nx.DiGraph, d: float) -&gt; dict</h3>
+        <p>Eigen implementatie van het PageRank-algoritme (iteratieve power-methode).</p>
+        <div class="algo">
+          <strong>Werking:</strong>
+          <ul class="stappen">
+            <li>Initialiseer elke node op <code>1/N</code></li>
+            <li>Herhaal 100 keer: elke node krijgt <code>(1-d)/N</code> plus een gewogen bijdrage <code>d ×</code> (PageRank van elke voorganger / diens uitgaande graad)</li>
+            <li>Nodes zonder uitgaande links ("dangling nodes") verdelen hun PageRank gelijk over alle <code>N</code> nodes</li>
+          </ul>
+        </div>
+        <table class="params">
+          <tr><th>Parameter</th><th>Omschrijving</th></tr>
+          <tr><td>G</td><td>Gerichte graaf (<code>nx.DiGraph</code>)</td></tr>
+          <tr><td>d</td><td>Dempingsfactor (damping factor), gebruikt als <code>0.85</code></td></tr>
+        </table>
+      </div>
+
+      <div class="func">
+        <h3>maak_grafiek(pagerank: dict) -&gt; None</h3>
+        <p>Toont een histogram (log-schaal op de y-as) van de verdeling van PageRank-waarden over alle nodes.</p>
+      </div>
+
+      <div class="algo">
+        <strong>Hoofdscript:</strong> leest <code>squirrel_edges.csv</code> in, bouwt de graaf, berekent PageRank met <code>d = 0.85</code> en toont de verdeling als histogram.
+      </div>
+    </section>
+
+    <footer>Automatisch gegenereerde documentatie op basis van de ingeleverde notebooks</footer>
+  </main>
+</div>
+</body>
+</html>
